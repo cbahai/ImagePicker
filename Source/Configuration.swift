@@ -13,13 +13,49 @@ public struct Configuration {
   public var bottomContainerColor = UIColor(red: 0.09, green: 0.11, blue: 0.13, alpha: 1)
 
   // MARK: Fonts
-
-  public var numberLabelFont = UIFont.systemFont(ofSize: 19, weight: UIFontWeightBold)
-  public var doneButton = UIFont.systemFont(ofSize: 19, weight: UIFontWeightMedium)
-  public var flashButton = UIFont.systemFont(ofSize: 12, weight: UIFontWeightMedium)
-  public var noImagesFont = UIFont.systemFont(ofSize: 18, weight: UIFontWeightMedium)
-  public var noCameraFont = UIFont.systemFont(ofSize: 18, weight: UIFontWeightMedium)
-  public var settingsFont = UIFont.systemFont(ofSize: 16, weight: UIFontWeightMedium)
+  
+  public var numberLabelFont: UIFont {
+    if #available(iOS 8.2, *) {
+      return UIFont.systemFont(ofSize: 19, weight: UIFontWeightBold)
+    } else {
+      return UIFont.boldSystemFont(ofSize: 19)
+    }
+  }
+  public var doneButton: UIFont {
+    if #available(iOS 8.2, *) {
+      return UIFont.systemFont(ofSize: 19, weight: UIFontWeightMedium)
+    } else {
+      return UIFont.systemFont(ofSize: 19)
+    }
+  }
+  public var flashButton: UIFont {
+    if #available(iOS 8.2, *) {
+      return UIFont.systemFont(ofSize: 12, weight: UIFontWeightMedium)
+    } else {
+      return UIFont.systemFont(ofSize: 12)
+    }
+  }
+  public var noImagesFont: UIFont {
+    if #available(iOS 8.2, *) {
+      return UIFont.systemFont(ofSize: 18, weight: UIFontWeightMedium)
+    } else {
+      return UIFont.systemFont(ofSize: 18)
+    }
+  }
+  public var noCameraFont: UIFont {
+    if #available(iOS 8.2, *) {
+      return UIFont.systemFont(ofSize: 18, weight: UIFontWeightMedium)
+    } else {
+      return UIFont.systemFont(ofSize: 18)
+    }
+  }
+  public var settingsFont: UIFont {
+    if #available(iOS 8.2, *) {
+      return UIFont.systemFont(ofSize: 16, weight: UIFontWeightMedium)
+    } else {
+      return UIFont.systemFont(ofSize: 16)
+    }
+  }
 
   // MARK: Titles
 
