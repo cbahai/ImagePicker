@@ -4,13 +4,14 @@ protocol TopViewDelegate: class {
 
   func flashButtonDidPress(_ title: String)
   func rotateDeviceDidPress()
+  func dismissButtonDidPress()
 }
 
 open class TopView: UIView {
 
   struct Dimensions {
     static let leftOffset: CGFloat = 11
-    static let rightOffset: CGFloat = 7
+    static let space: CGFloat = 6
     static let height: CGFloat = 34
   }
 
@@ -41,6 +42,16 @@ open class TopView: UIView {
 
     return button
     }()
+  
+  open lazy var dismissButton: UIButton = { [unowned self] in
+    let button = UIButton()
+    button.setTitle(self.configuration.dismissButtonTitle, for: UIControlState())
+    button.setTitleColor(UIColor.white, for: UIControlState())
+    button.titleLabel?.font = self.configuration.dismissButton
+    button.addTarget(self, action: #selector(dismissButtonDidPress(_:)), for: .touchUpInside)
+    
+    return button
+    }()
 
   weak var delegate: TopViewDelegate?
 
@@ -68,6 +79,10 @@ open class TopView: UIView {
 
     if configuration.canRotateCamera {
       buttons.append(rotateCamera)
+    }
+    
+    if configuration.isDismissButtonEnabled {
+      buttons.append(dismissButton)
     }
 
     for button in buttons {
@@ -109,5 +124,9 @@ open class TopView: UIView {
 
   func rotateCameraButtonDidPress(_ button: UIButton) {
     delegate?.rotateDeviceDidPress()
+  }
+  
+  func dismissButtonDidPress(_ button: UIButton) {
+    delegate?.dismissButtonDidPress()
   }
 }

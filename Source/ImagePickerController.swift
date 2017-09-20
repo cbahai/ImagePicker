@@ -465,6 +465,10 @@ extension ImagePickerController: TopViewDelegate {
   func rotateDeviceDidPress() {
     cameraController.rotateCamera()
   }
+  
+  func dismissButtonDidPress() {
+    self.dismiss(animated: true, completion: nil)
+  }
 }
 
 // MARK: - Pan gesture handler

@@ -77,13 +77,31 @@ extension TopView {
       relatedBy: .equal, toItem: nil, attribute: .notAnAttribute,
       multiplier: 1, constant: 55))
 
-    if configuration.canRotateCamera {
-      addConstraint(NSLayoutConstraint(item: rotateCamera, attribute: .right,
+    if configuration.isDismissButtonEnabled {
+      addConstraint(NSLayoutConstraint(item: dismissButton, attribute: .right,
         relatedBy: .equal, toItem: self, attribute: .right,
-        multiplier: 1, constant: Dimensions.rightOffset))
+        multiplier: 1, constant: 0))
+      
+      addConstraint(NSLayoutConstraint(item: dismissButton, attribute: .centerY,
+        relatedBy: .equal, toItem: self, attribute: .centerY,
+        multiplier: 1, constant: 0))
+      
+      addConstraint(NSLayoutConstraint(item: dismissButton, attribute: .width,
+        relatedBy: .equal, toItem: nil, attribute: .notAnAttribute,
+        multiplier: 1, constant: 55))
+      
+      addConstraint(NSLayoutConstraint(item: dismissButton, attribute: .height,
+        relatedBy: .equal, toItem: nil, attribute: .notAnAttribute,
+        multiplier: 1, constant: 55))
+    }
+    
+    if configuration.canRotateCamera {
+      addConstraint(NSLayoutConstraint(item: rotateCamera, attribute: .left,
+        relatedBy: .equal, toItem: flashButton, attribute: .right,
+        multiplier: 1, constant: Dimensions.space))
 
       addConstraint(NSLayoutConstraint(item: rotateCamera, attribute: .centerY,
-        relatedBy: .equal, toItem: self, attribute: .centerY,
+        relatedBy: .equal, toItem: flashButton, attribute: .centerY,
         multiplier: 1, constant: 0))
 
       addConstraint(NSLayoutConstraint(item: rotateCamera, attribute: .width,

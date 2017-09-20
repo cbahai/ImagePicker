@@ -35,6 +35,13 @@ public struct Configuration {
       return UIFont.systemFont(ofSize: 12)
     }
   }
+  public var dismissButton: UIFont {
+    if #available(iOS 8.2, *) {
+      return UIFont.systemFont(ofSize: 16, weight: UIFontWeightMedium)
+    } else {
+      return UIFont.systemFont(ofSize: 16)
+    }
+  }
   public var noImagesFont: UIFont {
     if #available(iOS 8.2, *) {
       return UIFont.systemFont(ofSize: 18, weight: UIFontWeightMedium)
@@ -62,6 +69,7 @@ public struct Configuration {
   public var OKButtonTitle = "OK"
   public var cancelButtonTitle = "Cancel"
   public var doneButtonTitle = "Done"
+  public var dismissButtonTitle = "Dismiss"
   public var noImagesTitle = "No images available"
   public var noCameraTitle = "Camera is not available"
   public var settingsTitle = "Settings"
@@ -77,6 +85,7 @@ public struct Configuration {
   // MARK: Custom behaviour
 
   public var canRotateCamera = true
+  public var isDismissButtonEnabled = true
   public var collapseCollectionViewWhileShot = true
   public var recordLocation = true
   public var allowMultiplePhotoSelection = true
