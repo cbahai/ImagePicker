@@ -369,7 +369,6 @@ extension ImagePickerController: BottomContainerViewDelegate {
   }
 
   func cancelButtonDidPress() {
-    dismiss(animated: true, completion: nil)
     delegate?.cancelButtonDidPress(self)
   }
 
